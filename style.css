@@ -162,7 +162,7 @@ h1 {
   opacity: .9;
 }
 
-/* Quick statistics */
+/* Quick statistics — slightly shorter boxes */
 .quick-stats {
   max-width: 1200px;
   margin: -38px auto 0;
@@ -178,19 +178,19 @@ h1 {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: 20px 22px;
+  padding: 15px 22px;
   box-shadow: 0 12px 35px rgba(9, 51, 62, .09);
 }
 
 .stat strong {
   display: block;
-  font-size: 1.9rem;
+  font-size: 1.75rem;
   letter-spacing: -.04em;
 }
 
 .stat span {
   color: var(--muted);
-  font-size: .9rem;
+  font-size: .85rem;
 }
 
 /* Sections */
@@ -592,4 +592,3 @@ footer span {
     margin-top: 12px;
   }
 }
-```
