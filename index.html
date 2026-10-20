@@ -153,16 +153,18 @@
     <select id="category">
       <option value="all">All categories</option>
       <option value="0">Glitching or Non-Functional Hanover Displays</option>
-      <option value="1">Super X Hanover Displays Type 1</option>
-      <option value="2">Super X Hanover Displays Type 2</option>
-      <option value="3">Super X Hanover Displays Type 3</option>
-      <option value="4">Super X Hanover Displays Type 4</option>
-      <option value="5">Non Super X Hanover Displays</option>
-      <option value="6">Glitching or Removed Mobitec Displays</option>
-      <option value="7">Shore Blue Livery (AM EMU Trains)</option>
-      <option value="8">Refurbished Diesel Buses & AM EMU Trains In Auckland</option>
-      <option value="9">Buses On Loan In New Zealand</option>
-      <option value="10">Demonstrator Buses In New Zealand</option>
+      <option value="1">Non-Functional Hanover Displays</option>
+      <option value="2">Super X Hanover Displays Type 1</option>
+      <option value="3">Super X Hanover Displays Type 2</option>
+      <option value="4">Super X Hanover Displays Type 3</option>
+      <option value="5">Super X Hanover Displays Type 4</option>
+      <option value="6">Non Super X Hanover Displays</option>
+      <option value="7">Glitching Mobitec Displays</option>
+      <option value="8">Removed Mobitec Displays</option>
+      <option value="9">Shore Blue Livery (AM EMU Trains)</option>
+      <option value="10">Refurbished Diesel Buses & AM EMU Trains In Auckland</option>
+      <option value="11">Buses On Loan In New Zealand</option>
+      <option value="12">Demonstrator Buses In New Zealand</option>
     </select>
   </div>
 
@@ -255,18 +257,19 @@
     <strong>nzbustrainfleetdatabase.co.nz</strong>
     <span>New Zealand Bus & Train Fleet Database</span>
   </div>
-  <span>Last Updated • 20/10/26, 18:14 (GMT+13)</span>
+  <span>Last Updated • 20/10/26, 18:22 (GMT+13)</span>
 </footer>
 
 <script>
 const records = [
-  {"fleet":"HE219","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE239","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE240","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE242","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE252","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE257","category":"Glitching or Non-Functional Hanover Displays","detail":""},
-  {"fleet":"HE263","category":"Glitching or Non-Functional Hanover Displays","detail":""},
+  {"fleet":"HE219","category":"Non-Functional Hanover Displays","detail":""},
+  {"fleet":"HE236","category":"Non-Functional Hanover Displays","detail":""},
+  {"fleet":"HE239","category":"Glitching Hanover Displays","detail":""},
+  {"fleet":"HE240","category":"Glitching Hanover Displays","detail":""},
+  {"fleet":"HE242","category":"Glitching Hanover Displays","detail":""},
+  {"fleet":"HE252","category":"Non-Functional Hanover Displays","detail":""},
+  {"fleet":"HE257","category":"Non-Functional Hanover Displays","detail":""},
+  {"fleet":"HE263","category":"Non-Functional Hanover Displays","detail":""},
 
   {"fleet":"HE144","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE147","category":"Super X Hanover Displays Type 1","detail":""},
@@ -278,6 +281,7 @@ const records = [
   {"fleet":"HE161","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE162","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE163","category":"Super X Hanover Displays Type 1","detail":""},
+  {"fleet":"HE164","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE165","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE166","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE167","category":"Super X Hanover Displays Type 1","detail":""},
@@ -362,7 +366,6 @@ const records = [
   {"fleet":"HE255","category":"Super X Hanover Displays Type 2","detail":""},
   {"fleet":"HE265","category":"Super X Hanover Displays Type 2","detail":""},
 
-  {"fleet":"HE164","category":"Super X Hanover Displays Type 3","detail":""},
   {"fleet":"HE504","category":"Super X Hanover Displays Type 3","detail":""},
 
   {"fleet":"HE252","category":"Super X Hanover Displays Type 4","detail":""},
@@ -386,11 +389,11 @@ const records = [
   {"fleet":"HE612","category":"Non Super X Hanover Displays","detail":""},
 
 
-  {"fleet":"GB1129","category":"Glitching or Removed Mobitec Displays","detail":""},
-  {"fleet":"GB5237","category":"Glitching or Removed Mobitec Displays","detail":""},
-  {"fleet":"GB5242","category":"Glitching or Removed Mobitec Displays","detail":""},
-  {"fleet":"GB5403","category":"Glitching or Removed Mobitec Displays","detail":""},
-  {"fleet":"GB5414","category":"Glitching or Removed Mobitec Displays","detail":""},
+  {"fleet":"GB1129","category":"Removed Mobitec Displays","detail":""},
+  {"fleet":"GB5237","category":"Glitching Mobitec Displays","detail":""},
+  {"fleet":"GB5242","category":"Removed Mobitec Displays","detail":""},
+  {"fleet":"GB5403","category":"Glitching Mobitec Displays","detail":""},
+  {"fleet":"GB5414","category":"Glitching Mobitec Displays","detail":""},
 
   {"fleet":"AM144","category":"Shore Blue Livery (AM EMU Trains)","detail":""},
   {"fleet":"AM864","category":"Shore Blue Livery (AM EMU Trains)","detail":""},
@@ -489,12 +492,14 @@ const records = [
 
 const categoryNames = [
   "Glitching or Non-Functional Hanover Displays",
+  "Non-Functional Hanover Displays",
   "Super X Hanover Displays Type 1",
   "Super X Hanover Displays Type 2",
   "Super X Hanover Displays Type 3",
   "Super X Hanover Displays Type 4",
   "Non Super X Hanover Displays",
-  "Glitching or Removed Mobitec Displays",
+  "Glitching Mobitec Displays",
+  "Removed Mobitec Displays",
   "Shore Blue Livery (AM EMU Trains)",
   "Refurbished Diesel Buses & AM EMU Trains In Auckland",
   "Buses On Loan In New Zealand",
