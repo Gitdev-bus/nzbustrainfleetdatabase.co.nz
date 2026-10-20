@@ -100,7 +100,7 @@ body {
   text-decoration: underline;
 }
 
-/* Main hero content — reduced vertical height */
+/* Main hero content */
 .hero-inner {
   max-width: 1200px;
   margin: auto;
@@ -162,16 +162,28 @@ h1 {
   opacity: .9;
 }
 
-/* Quick statistics */
+/* Quick statistics — moved lower */
 .quick-stats {
   max-width: 1200px;
-  margin: 20px auto 0;
+  margin: 70px auto 0;
   padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   position: relative;
   z-index: 3;
+}
+
+/* Teal background behind the lowered statistics */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(120deg, #06232d, #087589 62%, #10a0a7);
+  z-index: -1;
 }
 
 .stat {
