@@ -34,7 +34,8 @@ body {
   color: #fff;
   background: linear-gradient(120deg, #06232d, #087589 62%, #10a0a7);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  padding-bottom: 90px;
 }
 
 .hero:after {
@@ -49,6 +50,7 @@ body {
   box-shadow:
     0 0 0 55px rgba(255, 255, 255, .03),
     0 0 0 110px rgba(255, 255, 255, .025);
+  pointer-events: none;
 }
 
 .nav {
@@ -172,18 +174,6 @@ h1 {
   gap: 12px;
   position: relative;
   z-index: 3;
-}
-
-/* Teal background behind the lowered statistics */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(120deg, #06232d, #087589 62%, #10a0a7);
-  z-index: -1;
 }
 
 .stat {
