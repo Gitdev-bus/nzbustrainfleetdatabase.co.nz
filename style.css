@@ -1,4 +1,4 @@
-
+```css
 :root {
   --ink: #12232d;
   --muted: #657680;
@@ -128,7 +128,7 @@ body {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 75px 40px 65px;
+  padding: 25px 40px 65px;
   position: relative;
   z-index: 1;
 }
@@ -622,7 +622,7 @@ footer span {
   }
 
   .hero-inner {
-    padding: 50px 20px 45px;
+    padding: 25px 20px 45px;
   }
 
   h1 {
