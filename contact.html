@@ -69,6 +69,7 @@
       min-height: 0;
       height: auto;
       padding-bottom: 0;
+      margin-bottom: 0;
     }
 
     body:has(.contact-shell) .hero::after {
@@ -90,8 +91,13 @@
     .contact-shell {
       max-width: 820px;
       margin: 0 auto;
-      padding: 0 24px 80px;
+      padding: 28px 24px 80px;
       position: relative;
+      background: var(--paper);
+    }
+
+    /* Prevent a teal background from showing through the content area. */
+    body:has(.contact-shell) main.contact-shell {
       background: var(--paper);
     }
 
@@ -226,7 +232,7 @@
 
     @media (max-width: 600px) {
       .contact-shell {
-        padding: 0 16px 56px;
+        padding: 28px 16px 56px;
       }
 
       .contact-form .button {
