@@ -66,13 +66,13 @@
     }
 
     /* Keep the original teal header and remove the extra strip below it. */
-    body:has(.contact-shell) .hero {
-      min-height: 0;
-      height: auto;
-      padding: 0;
-      background: linear-gradient(135deg, #075467, #087a8f);
-      color: #fff;
-    }
+   body:has(.contact-shell) .hero {
+  min-height: 0;
+  height: auto;
+  padding: 0;
+  background: var(--dark);
+  color: #fff;
+}
 
     body:has(.contact-shell) .hero::after {
       display: none;
