@@ -604,7 +604,7 @@ function render() {
   });
 
   resultCount.textContent =
-    `${filtered.length} record${filtered.length === 1 ? "" : "s"}`;
+    `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
 
   results.innerHTML = filtered.map(r => {
     const type = r.category.includes("Hanover") ? "DISPLAY" :
