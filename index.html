@@ -154,6 +154,7 @@
 </section>
 
 <section id="database" class="database">
+
 <div class="section-heading">
   <div>
     <p class="eyebrow"></p>
@@ -162,16 +163,18 @@
       <strong>NOTE:</strong> Fleet record information may not always be completely accurate or up to date. Some records may contain errors or need further verification.
     </p>
   </div>
-  <p class="muted search-tip">
-    Try searching for a fleet number such as <b>HE256</b> or <b>AM144</b>.
-  </p>
 </div>
 
-  <div class="controls">
-    <label class="search-wrap">
-      <span>⌕</span>
-      <input id="search" type="search" placeholder="Search fleet number, type or record...">
-    </label>
+<div class="controls">
+  <label class="search-wrap">
+    <span>⌕</span>
+    <input id="search" type="search" placeholder="Search fleet number, type or record...">
+  </label>
+
+  <div class="category-wrap">
+    <p class="muted search-tip">
+      Try searching for a fleet number such as <b>HE256</b> or <b>AM144</b>.
+    </p>
     <select id="category">
       <option value="all">All Categories</option>
       <option value="0">Glitching Hanover Displays</option>
@@ -190,6 +193,8 @@
       <option value="13">Demonstrator Buses In New Zealand</option>
     </select>
   </div>
+</div>
+
 
   <div class="result-bar">
     <span id="resultCount"></span>
