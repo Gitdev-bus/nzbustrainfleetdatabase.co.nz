@@ -1,4 +1,3 @@
-
 :root {
   --ink: #12232d;
   --muted: #657680;
@@ -378,7 +377,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   grid-template-rows: auto 60px;
-  gap: 6px 10px;
+  gap: 3px 10px;
   align-items: stretch;
 }
 
@@ -390,8 +389,14 @@ h2 {
 .search-tip {
   grid-column: 1;
   grid-row: 1;
-  margin: 0 0 2px;
+  margin: 0;
   color: var(--muted);
+}
+
+/* NOTE spacing */
+.note {
+  margin-top: 0;
+  margin-bottom: 3px;
 }
 
 /* Search box */
@@ -738,7 +743,7 @@ footer span {
   .controls {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 60px 60px;
-    gap: 6px;
+    gap: 3px;
   }
 
   .search-tip {
