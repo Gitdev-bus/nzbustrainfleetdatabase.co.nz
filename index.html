@@ -7,7 +7,6 @@
 
   <title>NZ Bus &amp; Train Fleet Database</title>
 
-  <!-- Search engine description -->
   <meta
     name="description"
     content="Explore the New Zealand Bus & Train Fleet Database, featuring bus and train fleet numbers, vehicle types, operators and public transport research across New Zealand."
@@ -16,13 +15,11 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0b1f33">
 
-  <!-- Main website URL -->
   <link
     rel="canonical"
     href="https://gitdev-bus.github.io/nzbustrainfleetdatabase.co.nz/"
   >
 
-  <!-- Website favicon -->
   <link
     rel="icon"
     type="image/png"
@@ -39,7 +36,6 @@
     href="./nzbustfd-logo-512.png?v=5"
   >
 
-  <!-- Social media sharing preview -->
   <meta property="og:type" content="website">
   <meta
     property="og:site_name"
@@ -66,7 +62,6 @@
     content="NZ Bus & Train Fleet Database logo"
   >
 
-  <!-- Twitter / X sharing preview -->
   <meta name="twitter:card" content="summary">
   <meta
     name="twitter:title"
@@ -81,23 +76,24 @@
     content="https://gitdev-bus.github.io/nzbustrainfleetdatabase.co.nz/nzbustfd-logo-512.png"
   >
 
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
 <header class="hero">
   <nav class="nav">
-   <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
-  <img
-    src="./nzbustfd-logo-512.png"
-    alt=""
-    class="brand-logo"
-    width="44"
-    height="44"
-  >
-  <span>NZ Bus &amp; Train Fleet Database</span>
-</a>
+    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img
+        src="./nzbustfd-logo-512.png"
+        alt=""
+        class="brand-logo"
+        width="44"
+        height="44"
+      >
+      <span>NZ Bus &amp; Train Fleet Database</span>
+    </a>
+
     <div class="navlinks">
       <a href="#types">Vehicle Types</a>
       <a href="#database">Fleet Database</a>
@@ -105,28 +101,32 @@
       <a href="contact.html">Contact Us</a>
     </div>
   </nav>
+
   <div class="hero-inner">
     <div class="hero-copy">
       <p class="eyebrow"></p>
-      <h1>NZ Bus & Train Fleet Database</h1>
-    <p class="subtitle">
-  Discover New Zealand’s bus and train fleets, with information about
-  vehicle types, fleet numbers, operators, liveries, destination displays
-  and more.
-</p>
 
-<p class="subtitle">
-  Learn about the different buses and trains used around the country,
-  from Auckland’s urban buses and trains to vehicles operating in other
-  regions. 
-</p>
-      
- <p class="subtitle">
-  Find out about their different features, repaints,
-  refurbishments, fleet changes and more, all in one place. Whether
-  you’re looking for a specific vehicle or just interested in New Zealand
-  public transport, there’s plenty to explore!
-</p>
+      <h1>NZ Bus &amp; Train Fleet Database</h1>
+
+      <p class="subtitle">
+        Discover New Zealand’s bus and train fleets, with information about
+        vehicle types, fleet numbers, operators, liveries, destination displays
+        and more.
+      </p>
+
+      <p class="subtitle">
+        Learn about the different buses and trains used around the country,
+        from Auckland’s urban buses and trains to vehicles operating in other
+        regions.
+      </p>
+
+      <p class="subtitle">
+        Find out about their different features, repaints,
+        refurbishments, fleet changes and more, all in one place. Whether
+        you’re looking for a specific vehicle or just interested in New Zealand
+        public transport, there’s plenty to explore!
+      </p>
+
       <div class="hero-actions">
         <a class="button" href="#database">Search Fleet</a>
         <a class="button secondary" href="#types">Browse Vehicle Types</a>
@@ -136,10 +136,22 @@
 </header>
 
 <main>
+
 <section class="quick-stats">
-  <div class="stat"><strong id="vehicleCount">0</strong><span>Fleet Records</span></div>
-  <div class="stat"><strong id="categoryCount">0</strong><span>Categories</span></div>
-  <div class="stat"><strong>NZ</strong><span>New Zealand Focus</span></div>
+  <div class="stat">
+    <strong id="vehicleCount">0</strong>
+    <span>Fleet Records</span>
+  </div>
+
+  <div class="stat">
+    <strong id="categoryCount">0</strong>
+    <span>Categories</span>
+  </div>
+
+  <div class="stat">
+    <strong>NZ</strong>
+    <span>New Zealand Focus</span>
+  </div>
 </section>
 
 <section id="types" class="types">
@@ -148,64 +160,80 @@
       <p class="eyebrow"></p>
       <h2>Explore the Fleet</h2>
     </div>
-    <p class="muted">Have a look at some of the buses and trains featured in the database.</p>
+
+    <p class="muted">
+      Have a look at some of the buses and trains featured in the database.
+    </p>
   </div>
+
   <div id="typeGrid" class="type-grid"></div>
 </section>
 
 <section id="database" class="database">
 
-<div class="section-heading">
-  <div>
-    <p class="eyebrow"></p>
-    <h2>Find a Vehicle</h2>
-    <p class="muted">
-      <strong>NOTE:</strong> Fleet record information may not always be completely accurate or up to date. Some records may contain errors or need further verification.
-    </p>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow"></p>
+      <h2>Find a Vehicle</h2>
+
+      <p class="muted">
+        <strong>NOTE:</strong> Fleet record information may not always be
+        completely accurate or up to date. Some records may contain errors
+        or need further verification.
+      </p>
+    </div>
   </div>
-</div>
 
-<div class="controls">
-  <label class="search-wrap">
-    <span>⌕</span>
-    <input id="search" type="search" placeholder="Search fleet number, type or record...">
-  </label>
+  <div class="controls">
+    <label class="search-wrap">
+      <span>⌕</span>
+      <input
+        id="search"
+        type="search"
+        placeholder="Search fleet number, type or record..."
+      >
+    </label>
 
-  <div class="category-wrap">
-    <p class="muted search-tip">
-      Try searching for a fleet number such as <b>HE256</b> or <b>AM144</b>.
-    </p>
-    <select id="category">
-      <option value="all">All Categories</option>
-      <option value="0">Glitching Hanover Displays</option>
-      <option value="1">Non-Functional Hanover Displays</option>
-      <option value="2">Super X Hanover Displays Type 1</option>
-      <option value="3">Super X Hanover Displays Type 2</option>
-      <option value="4">Super X Hanover Displays Type 3</option>
-      <option value="5">Super X Hanover Displays Type 4</option>
-      <option value="6">Non Super X Hanover Displays</option>
-      <option value="7">Glitching Mobitec Displays</option>
-      <option value="8">Removed Mobitec Displays</option>
-      <option value="9">Shore Blue Livery - AM EMU Trains</option>
-      <option value="10">Refurbished AM EMU Trains In Auckland</option>
-      <option value="11">Refurbished Diesel Buses In Auckland</option>
-      <option value="12">Buses On Loan In New Zealand</option>
-      <option value="13">Demonstrator Buses In New Zealand</option>
-    </select>
+    <div class="category-wrap">
+      <p class="muted search-tip">
+        Try searching for a fleet number such as <b>HE256</b> or <b>AM144</b>.
+      </p>
+
+      <select id="category">
+        <option value="all">All Categories</option>
+        <option value="0">Glitching Hanover Displays</option>
+        <option value="1">Non-Functional Hanover Displays</option>
+        <option value="2">Super X Hanover Displays Type 1</option>
+        <option value="3">Super X Hanover Displays Type 2</option>
+        <option value="4">Super X Hanover Displays Type 3</option>
+        <option value="5">Super X Hanover Displays Type 4</option>
+        <option value="6">Non Super X Hanover Displays</option>
+        <option value="7">Glitching Mobitec Displays</option>
+        <option value="8">Removed Mobitec Displays</option>
+        <option value="9">Shore Blue Livery - AM EMU Trains</option>
+        <option value="10">Refurbished AM EMU Trains In Auckland</option>
+        <option value="11">Refurbished Diesel Buses In Auckland</option>
+        <option value="12">Buses On Loan In New Zealand</option>
+        <option value="13">Demonstrator Buses In New Zealand</option>
+      </select>
+    </div>
   </div>
-</div>
-
 
   <div class="result-bar">
     <span id="resultCount"></span>
     <button id="clear">Clear Filters</button>
   </div>
+
   <div id="results" class="results"></div>
-  <p id="noResults" class="no-results" hidden>No matching fleet records found.</p>
+
+  <p id="noResults" class="no-results" hidden>
+    No matching fleet records found.
+  </p>
+
 </section>
 
-
 <section id="about" class="about">
+
   <p class="eyebrow">ABOUT US</p>
 
   <h2>Created by a New Zealand Transit Enthusiast</h2>
@@ -239,9 +267,9 @@
       target="_blank"
       rel="noopener noreferrer"
     >RNZ's coverage of Aucklanders getting their first look inside the new
-    City Rail Link station at Maungawhau</a>. The article mentioned his visit to Maungawhau Station 
-    and his plans to use the train during the school holidays, as well as the improved connections 
-    to West Auckland.
+    City Rail Link station at Maungawhau</a>. The article mentioned his visit
+    to Maungawhau Station and his plans to use the train during the school
+    holidays, as well as the improved connections to West Auckland.
   </p>
 
   <p>
@@ -250,47 +278,60 @@
   </p>
 
   <div class="feature-grid">
+
     <div>
       <span class="icon">🚌</span>
       <b>Bus fleets</b>
-      <small>Explore operators, fleet numbers, vehicle models and bus fleet information.</small>
+      <small>
+        Explore operators, fleet numbers, vehicle models and bus fleet information.
+      </small>
     </div>
 
     <div>
       <span class="icon">🚆</span>
       <b>Train fleets</b>
-      <small>Find information about locomotives, passenger trains and AM-class units.</small>
+      <small>
+        Find information about locomotives, passenger trains and AM-class units.
+      </small>
     </div>
 
     <div>
       <span class="icon">🖥️</span>
       <b>Fleet details</b>
-      <small>Browse Hanover and Mobitec displays, liveries and vehicle changes.</small>
+      <small>
+        Browse Hanover and Mobitec displays, liveries and vehicle changes.
+      </small>
     </div>
 
     <div>
       <span class="icon">📝</span>
       <b>Request a change</b>
-      <small>Found an error or have an update? Use a vehicle's change-request link 
-        to suggest a correction, or head to our Contact Us page to share additional information.</small>
+      <small>
+        Found an error or have an update? Use a vehicle's change-request link
+        to suggest a correction, or head to our Contact Us page to share
+        additional information.
+      </small>
     </div>
+
   </div>
 </section>
-
-
 
 </main>
 
 <footer>
   <div>
     <strong>nzbustrainfleetdatabase.co.nz</strong>
-    <span>New Zealand Bus & Train Fleet Database</span>
+    <span>New Zealand Bus &amp; Train Fleet Database</span>
   </div>
- <strong>Last Updated • 28/10/26, 12:54 (GMT+13)</strong>
+
+  <strong>Last Updated • 28/10/26, 12:54 (GMT+13)</strong>
 </footer>
 
 <script>
 const records = [
+
+  // Hanover display records
+
   {"fleet":"HE143","category":"Non-Functional Hanover Displays","detail":""},
   {"fleet":"HE144","category":"Non-Functional Hanover Displays","detail":""},
   {"fleet":"HE145","category":"Non-Functional Hanover Displays","detail":""},
@@ -303,6 +344,8 @@ const records = [
   {"fleet":"HE240","category":"Glitching Hanover Displays","detail":""},
   {"fleet":"HE252","category":"Non-Functional Hanover Displays","detail":""},
   {"fleet":"HE263","category":"Non-Functional Hanover Displays","detail":""},
+
+  // Super X Hanover Displays Type 1
 
   {"fleet":"HE144","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE147","category":"Super X Hanover Displays Type 1","detail":""},
@@ -391,6 +434,8 @@ const records = [
   {"fleet":"HE603","category":"Super X Hanover Displays Type 1","detail":""},
   {"fleet":"HE608","category":"Super X Hanover Displays Type 1","detail":""},
 
+  // Super X Hanover Displays Type 2
+
   {"fleet":"HE248","category":"Super X Hanover Displays Type 2","detail":""},
   {"fleet":"HE250","category":"Super X Hanover Displays Type 2","detail":""},
   {"fleet":"HE251","category":"Super X Hanover Displays Type 2","detail":""},
@@ -399,9 +444,12 @@ const records = [
   {"fleet":"HE255","category":"Super X Hanover Displays Type 2","detail":""},
   {"fleet":"HE265","category":"Super X Hanover Displays Type 2","detail":""},
 
-  {"fleet":"HE504","category":"Super X Hanover Displays Type 3","detail":""},
+  // Super X Hanover Displays Type 3 and 4
 
+  {"fleet":"HE504","category":"Super X Hanover Displays Type 3","detail":""},
   {"fleet":"HE252","category":"Super X Hanover Displays Type 4","detail":""},
+
+  // Non Super X Hanover Displays
 
   {"fleet":"HE143","category":"Non Super X Hanover Displays","detail":""},
   {"fleet":"HE145","category":"Non Super X Hanover Displays","detail":""},
@@ -421,103 +469,162 @@ const records = [
   {"fleet":"HE611","category":"Non Super X Hanover Displays","detail":""},
   {"fleet":"HE612","category":"Non Super X Hanover Displays","detail":""},
 
+  // Mobitec displays
+
   {"fleet":"GB1129","category":"Removed Mobitec Displays","detail":""},
   {"fleet":"GB5237","category":"Glitching Mobitec Displays","detail":""},
   {"fleet":"GB5242","category":"Removed Mobitec Displays","detail":""},
   {"fleet":"GB5403","category":"Glitching Mobitec Displays","detail":""},
   {"fleet":"GB5414","category":"Glitching Mobitec Displays","detail":""},
 
+  // AM EMU trains
+
   {"fleet":"AM144","category":"Shore Blue Livery - AM EMU Trains","detail":""},
   {"fleet":"AM864","category":"Shore Blue Livery - AM EMU Trains","detail":""},
-
   {"fleet":"AM198","category":"Refurbished AM EMU Trains In Auckland","detail":""},
-{"fleet":"GB5201","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5206","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5207","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5208","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5209","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5210","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5211","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5219","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5223","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5224","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5225","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5226","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5227","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5228","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5229","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5230","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5231","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5232","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5233","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5234","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5235","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5236","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5237","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5240","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5242","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5243","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5247","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5250","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5251","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5253","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5254","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5256","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5258","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5261","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5262","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5266","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5267","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5401","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5402","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5405","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5407","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5410","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5412","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5413","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5414","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5419","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"GB5434","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT328","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT329","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT369","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT373","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT605","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT979","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT980","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT1520","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT1521","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT1524","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT4012","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT4015","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT4016","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9001","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9002","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9007","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9017","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9800","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9807","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9808","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9809","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9810","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9811","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9812","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9813","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9814","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9815","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9816","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9817","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9818","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9819","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9820","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9821","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9822","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9823","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9824","category":"Refurbished Diesel Buses In Auckland","detail":""},
-{"fleet":"RT9825","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  // Refurbished diesel buses
+
+  {"fleet":"GB5201","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5206","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5207","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5208","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5209","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5210","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5211","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5219","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5223","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5224","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5225","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5226","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5227","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5228","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5229","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5230","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5231","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5232","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5233","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5234","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5235","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5236","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5237","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5240","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5242","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5243","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5247","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5250","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5251","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5253","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5254","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5256","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5258","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5261","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5262","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5266","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5267","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5401","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5402","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5405","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5407","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5410","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5412","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5413","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5414","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5419","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"GB5434","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  {"fleet":"RT328","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT329","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT369","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT373","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT605","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT979","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT980","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  // Newly added RT1500–RT1516 units
+
+  {"fleet":"RT1500","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1501","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1502","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1503","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1504","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1505","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1506","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1507","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1508","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1509","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1510","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1511","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1512","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1513","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1514","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1515","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1516","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  {"fleet":"RT1520","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1521","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT1524","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  {"fleet":"RT4012","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT4015","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT4016","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  // RT9000 series, including newly added units
+
+  {"fleet":"RT9001","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9002","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9003","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9004","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9005","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9006","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9007","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9008","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9009","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9010","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9011","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9012","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9013","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9014","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9015","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9016","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9017","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9018","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9019","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9020","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9021","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9022","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9023","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9024","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9025","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  {"fleet":"RT9800","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9807","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9808","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9809","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9810","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9811","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9812","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9813","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9814","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9815","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9816","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9817","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9818","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9819","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9820","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9821","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9822","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9823","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9824","category":"Refurbished Diesel Buses In Auckland","detail":""},
+  {"fleet":"RT9825","category":"Refurbished Diesel Buses In Auckland","detail":""},
+
+  // Buses on loan
 
   {"fleet":"UZ9339","category":"Buses On Loan In New Zealand","detail":"NB2439 — Loan to Uzabus; Paraparaumu"},
   {"fleet":"UZ9344","category":"Buses On Loan In New Zealand","detail":"NB2444 — Loan to Uzabus; Paraparaumu"},
+
+  // Demonstrator buses
+
   {"fleet":"GB8936","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Kinetic (Go Bus)"},
   {"fleet":"HE612","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Howick & Eastern"},
   {"fleet":"RT3014","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Ritchies Transport"},
@@ -526,6 +633,7 @@ const records = [
   {"fleet":"RT5601","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Ritchies Transport"},
   {"fleet":"RT5602","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Ritchies Transport"},
   {"fleet":"WB158","category":"Demonstrator Buses In New Zealand","detail":"Auckland; Waiheke Bus Company"}
+
 ];
 
 const categoryNames = [
@@ -572,26 +680,38 @@ const typeCards = [
   }
 ];
 
+// Update statistics automatically.
+
 document.getElementById("vehicleCount").textContent = records.length;
 document.getElementById("categoryCount").textContent = categoryNames.length;
+
+// Generate vehicle type cards.
 
 const typeGrid = document.getElementById("typeGrid");
 
 typeGrid.innerHTML = typeCards.map((c, i) => `
   <article class="type-card">
     <div class="type-image-wrap">
-      <img src="${c.image}" alt="${c.title}" loading="lazy"
-           onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');">
+      <img
+        src="${c.image}"
+        alt="${c.title}"
+        loading="lazy"
+        onerror="this.style.display='none'; this.parentElement.classList.add('image-fallback');"
+      >
       <span class="image-label">${c.source}</span>
     </div>
+
     <div class="type-body">
       <h3>${c.title}</h3>
       <p>${c.text}</p>
+
       ${i === 1 ? '<a href="https://www.businfo.nz/" target="_blank" rel="noopener">View NZ bus photos ↗</a>' : ""}
       ${i === 2 ? '<a href="https://bahnbilder.ch/62599" target="_blank" rel="noopener">View CRRC example ↗</a>' : ""}
     </div>
   </article>
 `).join("");
+
+// Search and filtering.
 
 const results = document.getElementById("results");
 const search = document.getElementById("search");
@@ -600,10 +720,12 @@ const noResults = document.getElementById("noResults");
 const resultCount = document.getElementById("resultCount");
 
 function render() {
+
   const q = search.value.trim().toLowerCase();
   const cat = category.value;
 
   const filtered = records.filter(r => {
+
     const matchesCategory =
       cat === "all" ||
       r.category === categoryNames[Number(cat)];
@@ -612,12 +734,14 @@ function render() {
       `${r.fleet} ${r.category} ${r.detail}`.toLowerCase();
 
     return matchesCategory && (!q || text.includes(q));
+
   });
 
   resultCount.textContent =
     `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
 
   results.innerHTML = filtered.map(r => {
+
     const type = r.category.includes("Hanover") ? "DISPLAY" :
                  r.category.includes("Mobitec") ? "DISPLAY" :
                  r.category.includes("Refurbished") ? "REFURB" :
@@ -625,54 +749,79 @@ function render() {
                  r.category.includes("Demonstrator") ? "DEMO" :
                  r.category.includes("Livery") ? "LIVERY" : "RECORD";
 
-    return `<article class="record">
-  <div class="fleet">${r.fleet}</div>
-  <div class="record-main">
-    <h3>${r.category}</h3>
-    ${r.detail ? `<p>${r.detail}</p>` : ""}
-  </div>
-  <div class="record-actions">
-    <span class="tag">${type}</span>
-    <a class="change-request"
-       href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">
-      ✉ Change request
-    </a>
-  </div>
-</article>`;
+    return `
+      <article class="record">
+
+        <div class="fleet">${r.fleet}</div>
+
+        <div class="record-main">
+          <h3>${r.category}</h3>
+          ${r.detail ? `<p>${r.detail}</p>` : ""}
+        </div>
+
+        <div class="record-actions">
+          <span class="tag">${type}</span>
+
+          <a
+            class="change-request"
+            href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}"
+          >
+            ✉ Change request
+          </a>
+        </div>
+
+      </article>
+    `;
+
   }).join("");
 
   noResults.hidden = filtered.length !== 0;
+
 }
 
 search.addEventListener("input", render);
 category.addEventListener("change", render);
 
+// Clear filters.
+
 document.getElementById("clear").addEventListener("click", () => {
+
   search.value = "";
   category.value = "all";
+
   render();
   search.focus();
+
 });
 
+// Initial render.
+
 render();
+
 </script>
 
 <script>
 (function () {
+
   const STORAGE_KEY = "nzFleetDatabaseScrollY";
 
-  // Restore the previous scroll position before the page is shown, if possible.
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "auto";
   }
 
-  // Save the position as the user scrolls.
+  // Save the scroll position while scrolling.
+
   window.addEventListener("scroll", function () {
-    sessionStorage.setItem(STORAGE_KEY, String(window.scrollY));
+    sessionStorage.setItem(
+      STORAGE_KEY,
+      String(window.scrollY)
+    );
   }, { passive: true });
 
-  // Save the position when opening a change request.
+  // Save position when opening a change request.
+
   document.addEventListener("click", function (event) {
+
     const target = event.target;
 
     if (!(target instanceof Element)) return;
@@ -680,14 +829,25 @@ render();
     const link = target.closest("a.change-request");
 
     if (link) {
-      sessionStorage.setItem(STORAGE_KEY, String(window.scrollY));
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        String(window.scrollY)
+      );
     }
+
   });
 
-  // Save the position when navigating away.
+  // Save position when navigating away.
+
   window.addEventListener("pagehide", function () {
-    sessionStorage.setItem(STORAGE_KEY, String(window.scrollY));
+
+    sessionStorage.setItem(
+      STORAGE_KEY,
+      String(window.scrollY)
+    );
+
   });
+
 })();
 </script>
 
