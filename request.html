@@ -277,12 +277,12 @@
       </label>
 
       <p id="verificationStatus" role="status" aria-live="polite">
-        Checking vehicle details...
+        Checking Vehicle details...
       </p>
 
       <div class="request-actions">
         <button class="button" id="submitButton" type="submit" disabled>
-          Checking vehicle...
+          Checking Vehicle...
         </button>
       </div>
 
@@ -372,19 +372,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (!record) {
       blockSubmission(
-        "This vehicle could not be matched to its fleet record. Please return to the database and select the vehicle again."
+        "This vehicle could not be matched to its fleet record. Please return to the fleet database and select the vehicle again."
       );
       return;
     }
 
     // Verification successful.
     setStatus(
-      "Vehicle details match the published database.",
+      "Vehicle details match the published fleet database.",
       "success"
     );
 
     submitButton.disabled = false;
-    submitButton.textContent = "Submit change request";
+    submitButton.textContent = "Submit Change Request";
 
   } catch (error) {
     console.error("Vehicle verification failed:", error);
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       event.preventDefault();
 
       blockSubmission(
-        "The selected vehicle details have changed. Please reopen the form from the database."
+        "The selected vehicle details have changed. Please reopen the form from the fleet database."
       );
 
       return;
