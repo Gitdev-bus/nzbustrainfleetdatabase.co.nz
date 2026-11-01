@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,7 +93,6 @@
       resize: vertical;
     }
 
-    /* Match the Contact Us submit button. */
     .request-form .button {
       border: 0;
       background: linear-gradient(120deg, var(--accent-dark), var(--accent));
@@ -329,7 +327,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     setStatus(message, "error");
   }
 
-  // Do not accept a request without both URL parameters.
+  // Require both URL parameters.
   if (!requestedFleet || !requestedCategory) {
     blockSubmission(
       "Open this form using the Change request link on a vehicle record."
@@ -347,43 +345,44 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const pageHTML = await response.text();
 
-    // Read the fleet records from the homepage's records array.
+    // Extract the records array from the homepage.
     const match = pageHTML.match(
-      /(?:const|let|var)\s+records\s*=\s*(\[[\s\S]*?\])\s*;/
+      /(?:const|let|var)\s+records\s*=\s*\[([\s\S]*?)\]\s*;/
     );
 
     if (!match) {
-      throw new Error(
-        "The fleet records could not be located. The database format may need a different reader."
-      );
+      throw new Error("The fleet records could not be located.");
     }
 
-    // This expects the records array to be valid JSON.
-    const records = JSON.parse(match[1]);
+    // Remove full-line JavaScript comments before parsing.
+    const recordsText = "[" + match[1]
+      .split("\n")
+      .filter(line => !line.trim().startsWith("//"))
+      .join("\n") + "]";
 
+    const records = JSON.parse(recordsText);
+
+    // Match both fleet number and category.
+    // Some fleet numbers appear in more than one category.
     const record = records.find(function (item) {
       return String(item.fleet).trim().toLowerCase() ===
-        requestedFleet.toLowerCase();
+        requestedFleet.toLowerCase() &&
+        String(item.category).trim() === requestedCategory;
     });
 
     if (!record) {
       blockSubmission(
-        "This fleet number was not found in the database. Please return to the database and select a vehicle."
+        "This vehicle could not be matched to its fleet record. Please return to the database and select the vehicle again."
       );
       return;
     }
 
-    if (
-      String(record.category).trim() !== requestedCategory
-    ) {
-      blockSubmission(
-        "The category does not match this vehicle's database record. Please reopen the request from the correct vehicle."
-      );
-      return;
-    }
+    // Verification successful.
+    setStatus(
+      "Vehicle details match the published database.",
+      "success"
+    );
 
-    // The fleet number and category match the published database.
-    setStatus("Vehicle details match the published database.", "success");
     submitButton.disabled = false;
     submitButton.textContent = "Submit change request";
 
@@ -396,16 +395,18 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   form.addEventListener("submit", function (event) {
-    // Recheck the visible values before allowing the normal form submission.
+    // Check the vehicle details before submitting.
     if (
       fleetInput.value.trim() !== requestedFleet ||
       categoryInput.value.trim() !== requestedCategory ||
       submitButton.disabled
     ) {
       event.preventDefault();
+
       blockSubmission(
         "The selected vehicle details have changed. Please reopen the form from the database."
       );
+
       return;
     }
 
