@@ -714,7 +714,7 @@ function render() {
   results.innerHTML = filtered.map(r => {
     const type = r.category.includes("Hanover") ? "DISPLAY" :
                  r.category.includes("Mobitec") ? "DISPLAY" :
-                 r.category.includes("Refurbished") ? "REFURB" :
+                 r.category.includes("Refurbished") ? "REFURBISHMENT" :
                  r.category.includes("Loan") ? "LOAN" :
                  r.category.includes("Demonstrator") ? "DEMO" :
                  r.category.includes("Livery") ? "LIVERY" : "RECORD";
