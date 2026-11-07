@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +34,24 @@
   <link rel="stylesheet" href="./style.css">
 
   <style>
+    /* Restore the homepage circle design on the Request page */
+    body:has(.request-shell) .hero::after {
+      display: block;
+      content: "";
+      position: absolute;
+      right: -180px;
+      top: -240px;
+      width: 620px;
+      height: 620px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(255, 255, 255, 0.045),
+        0 0 0 110px rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .request-shell {
       max-width: 820px;
       margin: 0 auto;
