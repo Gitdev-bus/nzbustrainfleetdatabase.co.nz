@@ -64,7 +64,7 @@
         var(--paper);
     }
 
-    /* Keep the shared header styling consistent with request.html. */
+    /* Compact header */
     body:has(.contact-shell) .hero {
       min-height: 0;
       height: auto;
@@ -82,6 +82,24 @@
 
     body:has(.contact-shell) .navlinks a:hover {
       color: #fff;
+    }
+
+    /* Restore the decorative circle from the homepage */
+    body:has(.contact-shell) .hero::after {
+      display: block;
+      content: "";
+      position: absolute;
+      right: -180px;
+      top: -240px;
+      width: 620px;
+      height: 620px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 55px rgba(255, 255, 255, 0.045),
+        0 0 0 110px rgba(255, 255, 255, 0.025);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .contact-shell {
@@ -104,7 +122,6 @@
       box-shadow: 0 16px 42px rgba(9,51,62,.10);
     }
 
-  
     .contact-card h1 {
       font-size: clamp(2rem, 5vw, 3.3rem);
       color: var(--ink);
