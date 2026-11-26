@@ -415,6 +415,7 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 11px;
   padding: 0 13px;
+  box-shadow: none;
 }
 
 .search-wrap span {
@@ -423,7 +424,7 @@ h2 {
   color: var(--muted);
 }
 
-/* Category dropdown */
+/* General form controls */
 input,
 select {
   width: 100%;
@@ -440,12 +441,21 @@ select {
 input {
   border: 0;
   padding-left: 10px;
+  box-shadow: none;
 }
 
 .search-wrap input {
   height: 100%;
+  min-width: 0;
+  flex: 1;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
 }
 
+/* Category dropdown */
 .category-wrap select {
   grid-column: 2;
   grid-row: 2;
@@ -453,10 +463,22 @@ input {
   align-self: stretch;
 }
 
-.search-wrap:focus-within,
-input:focus,
+/* One focus outline for the entire search box */
+.search-wrap:focus-within {
+  border-color: #82bbc4;
+  box-shadow: 0 0 0 3px rgba(8, 122, 143, .1);
+}
+
+.search-wrap input:focus {
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Dropdown focus styling */
 select:focus {
   border-color: #82bbc4;
+  outline: none;
   box-shadow: 0 0 0 3px rgba(8, 122, 143, .1);
 }
 
