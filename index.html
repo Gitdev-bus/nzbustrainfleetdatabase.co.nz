@@ -861,6 +861,19 @@ render();
     );
   });
 })();
+
+ 
+// Keep operator buttons in alphabetical order whenever the homepage loads.
+const operatorLinks = document.querySelector(".operator-links");
+if (operatorLinks) {
+  [...operatorLinks.querySelectorAll(".operator-button")]
+    .sort((a, b) => {
+      const nameA = a.querySelector(".operator-name")?.textContent.trim() || "";
+      const nameB = b.querySelector(".operator-name")?.textContent.trim() || "";
+      return nameA.localeCompare(nameB, "en", { sensitivity: "base" });
+    })
+    .forEach(button => operatorLinks.appendChild(button));
+}
 </script>
 
 </body>
