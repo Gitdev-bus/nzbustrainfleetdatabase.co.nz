@@ -862,8 +862,8 @@ footer span {
   padding: 0 40px 78px;
 }
 .operator-links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
   gap: 14px;
 }
 .operator-button {
