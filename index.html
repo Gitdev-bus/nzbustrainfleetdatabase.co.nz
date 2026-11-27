@@ -170,7 +170,7 @@
   <option value="all">All Categories</option>
   <option value="0">Glitching Hanover Displays (SIDE)</option>
   <option value="1">Glitching Hanover Displays (REAR)</option>
-  <option value="2">Non-Functional Hanover Displays (REAR)</option>
+  <option value="2">Non Functional Hanover Displays (REAR)</option>
   <option value="3">Super X Hanover Displays Type 1</option>
   <option value="4">Super X Hanover Displays Type 2</option>
   <option value="5">Non Super X Hanover Displays</option>
@@ -179,7 +179,7 @@
   <option value="8">Shore Blue Livery - AM EMU Trains</option>
   <option value="9">Refurbished AM EMU Trains In Auckland</option>
   <option value="10">Refurbished Diesel Buses In Auckland</option>
-  <option value="11">Non-Functional Audio</option>
+  <option value="11">Non Functional Audio</option>
   <option value="12">Buses On Loan In New Zealand</option>
   <option value="13">Demonstrator Buses In New Zealand</option>
 </select>
@@ -207,7 +207,7 @@
     <span>NZ Bus &amp; Train Fleet Database</span>
   </div>
 
-  <strong>Site Last Updated • 27/11/2026, 22:48 (GMT+13)</strong>
+  <strong>Site Last Updated • 27/11/2026, 22:56 (GMT+13)</strong>
 </footer>
 <script>
 const records = [
@@ -638,14 +638,14 @@ const records = [
   {"fleet":"RT4023","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2021 Global Bus Ventures G2-FC - GBV NZ"},
   {"fleet":"RT5601","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2021 BYD D9UR / ADL Enviro200EV XLB - Alexander Dennis"},
   {"fleet":"RT5602","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2018 BYD D9UR / ADL Enviro200EV MMC - Alexander Dennis"},
-  {"fleet":"3849","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Tranzurban, 2026 Foton BJ6133EVCA-R1 - Foton"},
+  {"fleet":"3849","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Tranzurban, 2023 Foton BJ6133EVCA-R1 - Foton"},
   {"fleet":"WB158","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Waiheke Bus Company, 2024 Alexander Dennis Enviro100EV - Alexander Dennis"}
 ];
 
 const categoryNames = [
   "Glitching Hanover Displays (SIDE)",
   "Glitching Hanover Displays (REAR)",
-  "Non-Functional Hanover Displays (REAR)",
+  "Non Functional Hanover Displays (REAR)",
   "Super X Hanover Displays Type 1",
   "Super X Hanover Displays Type 2",
   "Non Super X Hanover Displays",
@@ -654,7 +654,7 @@ const categoryNames = [
   "Shore Blue Livery - AM EMU Trains",
   "Refurbished AM EMU Trains In Auckland",
   "Refurbished Diesel Buses In Auckland",
-  "Non-Functional Audio",
+  "Non Functional Audio",
   "Buses On Loan In New Zealand",
   "Demonstrator Buses In New Zealand"
 ];
@@ -748,8 +748,8 @@ function render() {
                  r.category.includes("Mobitec") ? "DISPLAY" :
                  r.category.includes("Audio") ? "AUDIO" :
                  r.category.includes("Refurbished") ? "REFURBISHMENT" :
-                 r.category.includes("Loan") ? "LOAN" :
-                 r.category.includes("Demonstrator") ? "DEMO" :
+                 r.category.includes("Loan") ? "ON LOAN" :
+                 r.category.includes("Demonstrator") ? "DEMONSTRATOR" :
                  r.category.includes("Livery") ? "LIVERY" : "RECORD";
 
     return `
