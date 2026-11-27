@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritchies Transport | NZ Bus &amp; Train Fleet Database</title>
+  <meta name="description" content="Ritchies Transport fleet records in the New Zealand Bus &amp; Train Fleet Database.">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="icon" type="image/png" sizes="512x512" href="./nzbustfd-logo-512.png?v=5">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero" style="min-height:0;height:auto;padding-bottom:0;">
+  <nav class="nav">
+    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img src="./nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
+      <span>NZ Bus &amp; Train Fleet Database</span>
+    </a>
+    <div class="navlinks">
+      <a href="./">Home</a>
+      <a href="./about.html">About Us</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="operator-page">
+  <p class="eyebrow">RT FLEET DATABASE</p>
+  <h1 style="color:var(--ink);font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0;">Ritchies Transport</h1>
+  <p class="page-intro">Browse all RT fleet records currently listed in the database.</p>
+  <div class="result-bar">
+    <strong id="operatorCount">0 Records</strong>
+    <span>Fleet prefix: RT</span>
+  </div>
+  <div class="operator-controls">
+    <input id="operatorSearch" type="search" placeholder="Search fleet number, category or vehicle type..." aria-label="Search Ritchies Transport records">
+    <a href="./">← Back to main database</a>
+  </div>
+  <div id="operatorResults" class="results"></div>
+  <p id="operatorNoResults" class="no-results" hidden>No matching fleet records found.</p>
+</main>
+
+<footer>
+  <div>
+    <strong>nzbustrainfleetdatabase.co.nz</strong>
+    <span>NZ Bus &amp; Train Fleet Database</span>
+  </div>
+  <strong>Operator Fleet Records</strong>
+</footer>
+
+<script>
+const records = [
+  {"fleet":"RT328","category":"Refurbished Diesel Buses In Auckland","detail":"2012 Scania K280UB6 - Designline Enviroline"},
+  {"fleet":"RT329","category":"Refurbished Diesel Buses In Auckland","detail":"2015 MAN 18.250 - Gemilang"},
+  {"fleet":"RT369","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K230UB4 - Kiwi Bus Builders"},
+  {"fleet":"RT373","category":"Refurbished Diesel Buses In Auckland","detail":"2013 MAN 18.250 - Designline Enviroline"},
+  {"fleet":"RT605","category":"Refurbished Diesel Buses In Auckland","detail":"2013 Designline Olymbus - Designline Enviroline"},
+  {"fleet":"RT979","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K320UB6 - Caetano"},
+  {"fleet":"RT980","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K320UB6 - Caetano"},
+  {"fleet":"RT1500","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1501","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1502","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1503","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1504","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1505","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1506","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1507","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1508","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1509","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1510","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1511","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1512","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1513","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1514","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1515","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1516","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1520","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K320UB6 - BCI"},
+  {"fleet":"RT1521","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K320UB6 - BCI"},
+  {"fleet":"RT1524","category":"Refurbished Diesel Buses In Auckland","detail":"2016 Scania K320UB6 - BCI"},
+  {"fleet":"RT4012","category":"Refurbished Diesel Buses In Auckland","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"RT4015","category":"Refurbished Diesel Buses In Auckland","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"RT4016","category":"Refurbished Diesel Buses In Auckland","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"RT9001","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9002","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9003","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9004","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9005","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9006","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9007","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9008","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9009","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9010","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9011","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9012","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9013","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9014","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9015","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9016","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9017","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9018","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9019","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9020","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9021","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9022","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9023","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9024","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9025","category":"Refurbished Diesel Buses In Auckland","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9800","category":"Refurbished Diesel Buses In Auckland","detail":"2015 Designline Olymbus - Designline Enviroline"},
+  {"fleet":"RT9807","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT9808","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT9809","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT9810","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT9811","category":"Refurbished Diesel Buses In Auckland","detail":"2015 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9812","category":"Refurbished Diesel Buses In Auckland","detail":"2015 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9813","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9814","category":"Refurbished Diesel Buses In Auckland","detail":"2013 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9815","category":"Refurbished Diesel Buses In Auckland","detail":"2013 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9816","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9817","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9818","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9819","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9820","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9821","category":"Refurbished Diesel Buses In Auckland","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9822","category":"Refurbished Diesel Buses In Auckland","detail":"2011 MAN 14.240 - MCV Evolution"},
+  {"fleet":"RT9823","category":"Refurbished Diesel Buses In Auckland","detail":"2011 MAN 14.240 - MCV Evolution"},
+  {"fleet":"RT9824","category":"Refurbished Diesel Buses In Auckland","detail":"2011 MAN 14.240 - MCV Evolution"},
+  {"fleet":"RT9825","category":"Refurbished Diesel Buses In Auckland","detail":"2011 MAN 14.240 - MCV Evolution"},
+  {"fleet":"RT0571","category":"Non Functional Audio","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"RT0583","category":"Non Functional Audio","detail":"2010 MAN 16.240 - Designline Enviroline"},
+  {"fleet":"RT0706","category":"Non Functional Audio","detail":"2005 Scania L94UB4 - Designline"},
+  {"fleet":"RT0804","category":"Non Functional Audio","detail":"2011 MAN 18.280 - Designline Enviroline"},
+  {"fleet":"RT1057","category":"Non Functional Audio","detail":"2016 BCI FBC6123 Citirider - BCI"},
+  {"fleet":"RT1251","category":"Non Functional Audio","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"RT1303","category":"Non Functional Audio","detail":"2018 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1319","category":"Non Functional Audio","detail":"2018 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1328","category":"Non Functional Audio","detail":"2018 Enviro200 MMC - Alexander Dennis"},
+  {"fleet":"RT1337","category":"Non Functional Audio","detail":"2018 Enviro200 MMC - Alexander Dennis"},
+  {"fleet":"RT1339","category":"Non Functional Audio","detail":"2018 Enviro200 MMC - Alexander Dennis"},
+  {"fleet":"RT1345","category":"Non Functional Audio","detail":"2018 Enviro200 MMC - Alexander Dennis"},
+  {"fleet":"RT1354","category":"Non Functional Audio","detail":"2018 Enviro200 MMC - Alexander Dennis"},
+  {"fleet":"RT1356","category":"Non Functional Audio","detail":"2018 Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"RT1363","category":"Non Functional Audio","detail":"2018 Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"RT1367","category":"Non Functional Audio","detail":"2018 Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"RT1371","category":"Non Functional Audio","detail":"2018 Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"RT1388","category":"Non Functional Audio","detail":"2018 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1395","category":"Non Functional Audio","detail":"2018 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1402","category":"Non Functional Audio","detail":"2018 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1410","category":"Non Functional Audio","detail":"2019 Enviro200 XLB - Alexander Dennis"},
+  {"fleet":"RT1411","category":"Non Functional Audio","detail":"2019 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"RT1412","category":"Non Functional Audio","detail":"2019 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"RT1415","category":"Non Functional Audio","detail":"2015 MAN 18.290 - Designline Enviroline"},
+  {"fleet":"RT1416","category":"Non Functional Audio","detail":"2015 MAN 18.290 - Designline Enviroline"},
+  {"fleet":"RT1417","category":"Non Functional Audio","detail":"2015 MAN 18.290 - Gemilang"},
+  {"fleet":"RT1423","category":"Non Functional Audio","detail":"2011 MAN 18.250 - Designline Enviroline"},
+  {"fleet":"RT1437","category":"Non Functional Audio","detail":"2011 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT1439","category":"Non Functional Audio","detail":"2012 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT1446","category":"Non Functional Audio","detail":"2015 MAN 16.250 - Designline Enviroline"},
+  {"fleet":"RT1452","category":"Non Functional Audio","detail":"2011 MAN 15.250 - Kiwi Bus Builders"},
+  {"fleet":"RT1453","category":"Non Functional Audio","detail":"2009 MAN 15.240 - Kiwi Bus Builders"},
+  {"fleet":"RT1455","category":"Non Functional Audio","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"RT1461","category":"Non Functional Audio","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"RT1462","category":"Non Functional Audio","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"RT1463","category":"Non Functional Audio","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"RT1464","category":"Non Functional Audio","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"RT1506","category":"Non Functional Audio","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1511","category":"Non Functional Audio","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT1532","category":"Non Functional Audio","detail":"2007 Volvo B7RLE - Designline"},
+  {"fleet":"RT1536","category":"Non Functional Audio","detail":"2007 Volvo B7RLE - Designline"},
+  {"fleet":"RT1545","category":"Non Functional Audio","detail":"2007 Volvo B7RLE - Designline"},
+  {"fleet":"RT1547","category":"Non Functional Audio","detail":"2007 Volvo B7RLE - Designline"},
+  {"fleet":"RT4091","category":"Non Functional Audio","detail":"2007 MAN 16.223 - Designline"},
+  {"fleet":"RT9014","category":"Non Functional Audio","detail":"2016 BCI FBC6110 Citirider - BCI"},
+  {"fleet":"RT9812","category":"Non Functional Audio","detail":"2015 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9819","category":"Non Functional Audio","detail":"2014 MAN 15.250 - MCV Evolution"},
+  {"fleet":"RT9836","category":"Non Functional Audio","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"RT9837","category":"Non Functional Audio","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"RT3014","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2018 BYD D9UR / ADL Enviro200EV MMC - Alexander Dennis"},
+  {"fleet":"RT3015","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2020 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"RT4023","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2021 Global Bus Ventures G2-FC - GBV NZ"},
+  {"fleet":"RT5601","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2021 BYD D9UR / ADL Enviro200EV XLB - Alexander Dennis"},
+  {"fleet":"RT5602","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Ritchies Transport, 2018 BYD D9UR / ADL Enviro200EV MMC - Alexander Dennis"},
+];
+
+const results = document.getElementById("operatorResults");
+const search = document.getElementById("operatorSearch");
+const count = document.getElementById("operatorCount");
+const noResults = document.getElementById("operatorNoResults");
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const filtered = records.filter(r =>
+    `${r.fleet} ${r.category} ${r.detail}`.toLowerCase().includes(q)
+  );
+
+  count.textContent = `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
+
+  results.innerHTML = filtered.map(r => {
+    const type = r.category.includes("Hanover") || r.category.includes("Mobitec") ? "DISPLAY" :
+      r.category.includes("Audio") ? "AUDIO" :
+      r.category.includes("Refurbished") ? "REFURBISHMENT" :
+      r.category.includes("Loan") ? "ON LOAN" :
+      r.category.includes("Demonstrator") ? "DEMONSTRATOR" :
+      r.category.includes("Livery") ? "LIVERY" : "RECORD";
+
+    return `
+      <article class="record">
+        <div class="fleet">${r.fleet}</div>
+        <div class="record-main">
+          <h3>${r.category}</h3>
+          ${r.detail ? `<p>${r.detail}</p>` : ""}
+        </div>
+        <div class="record-actions">
+          <span class="tag">${type}</span>
+          <a class="change-request" href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  noResults.hidden = filtered.length !== 0;
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
