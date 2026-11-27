@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Howick & Eastern | NZ Bus &amp; Train Fleet Database</title>
+  <meta name="description" content="Howick & Eastern fleet records in the New Zealand Bus &amp; Train Fleet Database.">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="icon" type="image/png" sizes="512x512" href="./nzbustfd-logo-512.png?v=5">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero" style="min-height:0;height:auto;padding-bottom:0;">
+  <nav class="nav">
+    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img src="./nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
+      <span>NZ Bus &amp; Train Fleet Database</span>
+    </a>
+    <div class="navlinks">
+      <a href="./about.html">About Us</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="operator-page">
+  <h1 style="color:var(--ink);font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0;">Howick & Eastern</h1>
+  <p class="page-intro">Browse all HE fleet records currently listed in the database.</p>
+  <div class="result-bar">
+    <strong id="operatorCount">0 Records</strong>
+    <span>Fleet prefix: HE</span>
+  </div>
+  <div class="operator-controls">
+    <input id="operatorSearch" type="search" placeholder="Search fleet number, category or vehicle type..." aria-label="Search Howick & Eastern records">
+    <a href="./">← Back to main database</a>
+  </div>
+  <div id="operatorResults" class="results"></div>
+  <p id="operatorNoResults" class="no-results" hidden>No matching fleet records found.</p>
+</main>
+
+<footer>
+  <div>
+    <strong>nzbustrainfleetdatabase.co.nz</strong>
+    <span>NZ Bus &amp; Train Fleet Database</span>
+  </div>
+  <strong>Site Last Updated • 28/11/2026, 11:22 (GMT+13)</strong>
+</footer>
+
+<script>
+const records = [
+  {"fleet":"HE252","category":"Glitching Hanover Displays (SIDE)","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE240","category":"Glitching Hanover Displays (REAR)","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE256","category":"Glitching Hanover Displays (REAR)","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE143","category":"Non Functional Hanover Displays (REAR)","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE144","category":"Non Functional Hanover Displays (REAR)","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE145","category":"Non Functional Hanover Displays (REAR)","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE146","category":"Non Functional Hanover Displays (REAR)","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE147","category":"Non Functional Hanover Displays (REAR)","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE218","category":"Non Functional Hanover Displays (REAR)","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE219","category":"Non Functional Hanover Displays (REAR)","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE220","category":"Non Functional Hanover Displays (REAR)","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE236","category":"Non Functional Hanover Displays (REAR)","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE263","category":"Non Functional Hanover Displays (REAR)","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE510","category":"Non Functional Hanover Displays (REAR)","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"75","category":"Super X Hanover Displays Type 1","detail":"2012 Isuzu FSD700 - Designline"},
+  {"fleet":"HE147","category":"Super X Hanover Displays Type 1","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE156","category":"Super X Hanover Displays Type 1","detail":"2011 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE157","category":"Super X Hanover Displays Type 1","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE158","category":"Super X Hanover Displays Type 1","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE159","category":"Super X Hanover Displays Type 1","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE160","category":"Super X Hanover Displays Type 1","detail":"2012 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE161","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE162","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE163","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE164","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE165","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE166","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE167","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE168","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE169","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE170","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE171","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE172","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE173","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE174","category":"Super X Hanover Displays Type 1","detail":"2014 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE175","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE176","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE177","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE178","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE179","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE180","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE181","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE182","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"HE218","category":"Super X Hanover Displays Type 1","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE219","category":"Super X Hanover Displays Type 1","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE220","category":"Super X Hanover Displays Type 1","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE222","category":"Super X Hanover Displays Type 1","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE224","category":"Super X Hanover Displays Type 1","detail":"2007 MAN 18.223 - Designline"},
+  {"fleet":"HE225","category":"Super X Hanover Displays Type 1","detail":"2007 MAN 18.223 - Designline"},
+  {"fleet":"HE235","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE236","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE237","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE238","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE239","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE240","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"241","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE242","category":"Super X Hanover Displays Type 1","detail":"2009 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE243","category":"Super X Hanover Displays Type 1","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE244","category":"Super X Hanover Displays Type 1","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE245","category":"Super X Hanover Displays Type 1","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE246","category":"Super X Hanover Displays Type 1","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE247","category":"Super X Hanover Displays Type 1","detail":"2010 Scania K280UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE256","category":"Super X Hanover Displays Type 1","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE257","category":"Super X Hanover Displays Type 1","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE258","category":"Super X Hanover Displays Type 1","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE259","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE260","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE261","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE262","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE263","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE264","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE266","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE267","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE268","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE269","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE270","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE271","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE272","category":"Super X Hanover Displays Type 1","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE300","category":"Super X Hanover Displays Type 1","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"404","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"405","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"406","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"407","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"408","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"409","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"410","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"411","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"412","category":"Super X Hanover Displays Type 1","detail":"2022 Foton BJ6116 - Foton"},
+  {"fleet":"413","category":"Super X Hanover Displays Type 1","detail":"2022 Allenbus Alpha - Allenbus"},
+  {"fleet":"414","category":"Super X Hanover Displays Type 1","detail":"2022 Allenbus Alpha - Allenbus"},
+  {"fleet":"415","category":"Super X Hanover Displays Type 1","detail":"2023 Foton BJ6116 - Foton"},
+  {"fleet":"416","category":"Super X Hanover Displays Type 1","detail":"2023 Foton BJ6116 - Foton"},
+  {"fleet":"418","category":"Super X Hanover Displays Type 1","detail":"2024 Foton BJ6116 - Foton"},
+  {"fleet":"HE500","category":"Super X Hanover Displays Type 1","detail":"2015 Alexander Dennis Enviro500 MMC - Alexander Dennis"},
+  {"fleet":"HE501","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE502","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE503","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE504","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE505","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE506","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE507","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE508","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE509","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Alexander Dennis"},
+  {"fleet":"HE510","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE511","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE512","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE513","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE514","category":"Super X Hanover Displays Type 1","detail":"2016 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE515","category":"Super X Hanover Displays Type 1","detail":"2019 Alexander Dennis Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"HE516","category":"Super X Hanover Displays Type 1","detail":"2019 Alexander Dennis Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"HE517","category":"Super X Hanover Displays Type 1","detail":"2019 Alexander Dennis Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"HE518","category":"Super X Hanover Displays Type 1","detail":"2019 Alexander Dennis Enviro500 MMC - Zhuhai Granton"},
+  {"fleet":"HE602","category":"Super X Hanover Displays Type 1","detail":"2022 BYD D9UR / ADL Enviro200EV XLB - Kiwi Bus / ADL"},
+  {"fleet":"HE603","category":"Super X Hanover Displays Type 1","detail":"2022 BYD D9UR / ADL Enviro200EV XLB - Kiwi Bus / ADL"},
+  {"fleet":"HE604","category":"Super X Hanover Displays Type 1","detail":"2022 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE605","category":"Super X Hanover Displays Type 1","detail":"2023 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE606","category":"Super X Hanover Displays Type 1","detail":"2023 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE607","category":"Super X Hanover Displays Type 1","detail":"2023 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE608","category":"Super X Hanover Displays Type 1","detail":"2025 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE248","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE250","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE251","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE252","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE253","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE254","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE255","category":"Super X Hanover Displays Type 2","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE265","category":"Super X Hanover Displays Type 2","detail":"2015 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"73","category":"Non Super X Hanover Displays","detail":"2012 Isuzu FSD700 - Designline"},
+  {"fleet":"HE143","category":"Non Super X Hanover Displays","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE144","category":"Non Super X Hanover Displays","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE145","category":"Non Super X Hanover Displays","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"HE146","category":"Non Super X Hanover Displays","detail":"2003 MAN 12.223 - Designline"},
+  {"fleet":"214","category":"Non Super X Hanover Displays","detail":"2005 MAN 17.223 - Designline"},
+  {"fleet":"215","category":"Non Super X Hanover Displays","detail":"2005 MAN 17.223 - Designline"},
+  {"fleet":"216","category":"Non Super X Hanover Displays","detail":"2005 MAN 17.223 - Designline"},
+  {"fleet":"217","category":"Non Super X Hanover Displays","detail":"2005 MAN 17.223 - Designline"},
+  {"fleet":"HE221","category":"Non Super X Hanover Displays","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE223","category":"Non Super X Hanover Displays","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE226","category":"Non Super X Hanover Displays","detail":"2007 MAN 18.223 - Designline"},
+  {"fleet":"229","category":"Non Super X Hanover Displays","detail":"2008 MAN 18.280 - Designline"},
+  {"fleet":"232","category":"Non Super X Hanover Displays","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"233","category":"Non Super X Hanover Displays","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"234","category":"Non Super X Hanover Displays","detail":"2008 Scania K270UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE249","category":"Non Super X Hanover Displays","detail":"2014 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE301","category":"Non Super X Hanover Displays","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"HE302","category":"Non Super X Hanover Displays","detail":"2005 MAN 12.223 - Designline"},
+  {"fleet":"401","category":"Non Super X Hanover Displays","detail":"2006 MAN 12.223 - Designline"},
+  {"fleet":"403","category":"Non Super X Hanover Displays","detail":"2006 MAN 12.223 - Designline"},
+  {"fleet":"HE609","category":"Non Super X Hanover Displays","detail":"2025 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE610","category":"Non Super X Hanover Displays","detail":"2025 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE611","category":"Non Super X Hanover Displays","detail":"2025 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE612","category":"Non Super X Hanover Displays","detail":"2022 Foton BJ6123 - Foton"},
+  {"fleet":"HE222","category":"Non Functional Audio","detail":"2006 MAN 17.223 - Designline"},
+  {"fleet":"HE256","category":"Non Functional Audio","detail":"2014 Scania K302UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE264","category":"Non Functional Audio","detail":"2015 Scania K302UB6 - Kiwi Bus Builders"},
+  {"fleet":"HE500","category":"Non Functional Audio","detail":"2015 Alexander Dennis Enviro500 MMC - Kiwi Bus / ADL"},
+  {"fleet":"HE607","category":"Non Functional Audio","detail":"2023 Yutong ZK6135BEVG (E13) - Yutong"},
+  {"fleet":"HE612","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Howick & Eastern, 2022 Foton BJ6123 - Foton"}
+];
+
+const results = document.getElementById("operatorResults");
+const search = document.getElementById("operatorSearch");
+const count = document.getElementById("operatorCount");
+const noResults = document.getElementById("operatorNoResults");
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const filtered = records.filter(r =>
+    `${r.fleet} ${r.category} ${r.detail}`.toLowerCase().includes(q)
+  );
+
+  count.textContent = `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
+
+  results.innerHTML = filtered.map(r => {
+    const type = r.category.includes("Hanover") || r.category.includes("Mobitec") ? "DISPLAY" :
+      r.category.includes("Audio") ? "AUDIO" :
+      r.category.includes("Refurbished") ? "REFURBISHMENT" :
+      r.category.includes("Loan") ? "ON LOAN" :
+      r.category.includes("Demonstrator") ? "DEMONSTRATOR" :
+      r.category.includes("Livery") ? "LIVERY" : "RECORD";
+
+    return `
+      <article class="record">
+        <div class="fleet">${r.fleet}</div>
+        <div class="record-main">
+          <h3>${r.category}</h3>
+          ${r.detail ? `<p>${r.detail}</p>` : ""}
+        </div>
+        <div class="record-actions">
+          <span class="tag">${type}</span>
+          <a class="change-request" href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  noResults.hidden = filtered.length !== 0;
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
