@@ -687,25 +687,33 @@ const typeCards = [
     title: "Auckland Buses",
     text: "Fleet information for Kinetic Urban and Go Bus, including diesel and electric buses.",
     image: "https://cdn.wearekinetic.com/media/_1200x630_fit_center-center_82_none/Auckland-electric-bus-photo.jpg",
-    source: "Kinetic"
+    source: "Kinetic",
+    link: "https://www.wearekinetic.com/",
+    linkText: "Visit Kinetic Website ↗"
   },
   {
     title: "Howick & Eastern",
     text: "Howick & Eastern fleet information, including research into Hanover destination displays.",
     image: "https://showbus.com/A/156%20Howick%20&%20Eastern%20ADL%20Enviro200%20Kiwi.JPG",
-    source: "Bus Info NZ"
+    source: "Bus Info NZ",
+    link: "https://www.businfo.nz/",
+    linkText: "View NZ Bus Photos ↗"
   },
   {
     title: "CRRC Electric Buses",
     text: "Information about Auckland's CRRC electric buses, including the eS-series and their fleet numbers.",
     image: "https://bahnbilder.ch/photos/xxlarge/62599.jpg",
-    source: "Bahnbilder"
+    source: "Bahnbilder",
+    link: "https://bahnbilder.ch/62599",
+    linkText: "View CRRC Example ↗"
   },
   {
     title: "Auckland EMU Trains",
     text: "Information about Auckland's AM-class electric trains, including fleet numbers and liveries.",
     image: "https://ourauckland.aucklandcouncil.govt.nz/media/zchn5wpm/electric-train.jpg",
-    source: "Our Auckland"
+    source: "Our Auckland",
+    link: "https://ourauckland.aucklandcouncil.govt.nz/",
+    linkText: "Visit Our Auckland ↗"
   }
 ];
 
@@ -734,8 +742,7 @@ typeGrid.innerHTML = typeCards.map((c, i) => `
       <h3>${c.title}</h3>
       <p>${c.text}</p>
 
-      ${i === 1 ? '<a href="https://www.businfo.nz/" target="_blank" rel="noopener noreferrer">View NZ Bus Photos ↗</a>' : ""}
-      ${i === 2 ? '<a href="https://bahnbilder.ch/62599" target="_blank" rel="noopener noreferrer">View CRRC Example ↗</a>' : ""}
+      <a href="${c.link}" target="_blank" rel="noopener noreferrer">${c.linkText}</a>
     </div>
   </article>
 `).join("");
