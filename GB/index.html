@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinetic (Go Bus) | NZ Bus &amp; Train Fleet Database</title>
+  <meta name="description" content="Kinetic (Go Bus) fleet records in the New Zealand Bus &amp; Train Fleet Database.">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="icon" type="image/png" sizes="512x512" href="./nzbustfd-logo-512.png?v=5">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero" style="min-height:0;height:auto;padding-bottom:0;">
+  <nav class="nav">
+    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img src="./nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
+      <span>NZ Bus &amp; Train Fleet Database</span>
+    </a>
+    <div class="navlinks">
+      <a href="./about.html">About Us</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="operator-page">
+  <h1 style="color:var(--ink);font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0;">Kinetic (Go Bus)</h1>
+  <p class="page-intro">Browse all GB fleet records currently listed in the database.</p>
+  <div class="result-bar">
+    <strong id="operatorCount">0 Records</strong>
+    <span>Fleet prefix: GB</span>
+  </div>
+  <div class="operator-controls">
+    <input id="operatorSearch" type="search" placeholder="Search fleet number, category or vehicle type..." aria-label="Search Kinetic (Kinetic (Go Bus)) records">
+    <a href="./">← Back to main database</a>
+  </div>
+  <div id="operatorResults" class="results"></div>
+  <p id="operatorNoResults" class="no-results" hidden>No matching fleet records found.</p>
+</main>
+
+<footer>
+  <div>
+    <strong>nzbustrainfleetdatabase.co.nz</strong>
+    <span>NZ Bus &amp; Train Fleet Database</span>
+  </div>
+  <strong>Site Last Updated • 28/11/2026, 11:22 (GMT+13)</strong>
+</footer>
+
+<script>
+const records = [
+  {"fleet":"GB5237","category":"Glitching Mobitec Displays","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5243","category":"Glitching Mobitec Displays","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5258","category":"Glitching Mobitec Displays","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5403","category":"Glitching Mobitec Displays","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5411","category":"Glitching Mobitec Displays","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5414","category":"Glitching Mobitec Displays","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB1129","category":"Removed Mobitec Displays","detail":"2017 MAN 14.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5242","category":"Removed Mobitec Displays","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5201","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5206","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5207","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5208","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5209","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5210","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5211","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5223","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5224","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5225","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5226","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5227","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5228","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5229","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5230","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5231","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5232","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5233","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5234","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5235","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5236","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5237","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5240","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5242","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5243","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5247","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5250","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5251","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5253","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5254","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5256","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5257","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5258","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5261","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5262","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5265","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5266","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5267","category":"Refurbished Diesel Buses In Auckland","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5401","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5402","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5405","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5407","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5409","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5410","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5411","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5412","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5413","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5414","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5418","category":"Refurbished Diesel Buses In Auckland","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5419","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5423","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5425","category":"Refurbished Diesel Buses In Auckland","detail":"2017 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5434","category":"Refurbished Diesel Buses In Auckland","detail":"2019 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"N4050","category":"Non Functional Audio","detail":"2011 Alexander Dennis Enviro200 - Kiwi Bus / ADL"},
+  {"fleet":"GB5204","category":"Non Functional Audio","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5206","category":"Non Functional Audio","detail":"2016 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5245","category":"Non Functional Audio","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5248","category":"Non Functional Audio","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5250","category":"Non Functional Audio","detail":"2018 MAN 16.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5266","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5268","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5271","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5277","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5280","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5290","category":"Non Functional Audio","detail":"2018 MAN 16.250 - GBV NZ Enviroline"},
+  {"fleet":"GB5417","category":"Non Functional Audio","detail":"2016 MAN 18.290 - GBV NZ Enviroline"},
+  {"fleet":"GB5802","category":"Non Functional Audio","detail":"2016 MAN ND323F - Gemilang"},
+  {"fleet":"GB5805","category":"Non Functional Audio","detail":"2016 MAN ND323F - Gemilang"},
+  {"fleet":"GB5808","category":"Non Functional Audio","detail":"2016 MAN ND323F - Gemilang"},
+  {"fleet":"GB5809","category":"Non Functional Audio","detail":"2016 MAN ND323F - Gemilang"},
+  {"fleet":"GB5811","category":"Non Functional Audio","detail":"2016 MAN ND323F - Gemilang"},
+  {"fleet":"GB8936 / N8936","category":"Demonstrator Buses In New Zealand","detail":"Auckland - Kinetic (Go Bus), 2019 Yutong ZK6131HG1 (E12) - Yutong"},
+];
+
+const results = document.getElementById("operatorResults");
+const search = document.getElementById("operatorSearch");
+const count = document.getElementById("operatorCount");
+const noResults = document.getElementById("operatorNoResults");
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const filtered = records.filter(r =>
+    `${r.fleet} ${r.category} ${r.detail}`.toLowerCase().includes(q)
+  );
+
+  count.textContent = `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
+
+  results.innerHTML = filtered.map(r => {
+    const type = r.category.includes("Hanover") || r.category.includes("Mobitec") ? "DISPLAY" :
+      r.category.includes("Audio") ? "AUDIO" :
+      r.category.includes("Refurbished") ? "REFURBISHMENT" :
+      r.category.includes("Loan") ? "ON LOAN" :
+      r.category.includes("Demonstrator") ? "DEMONSTRATOR" :
+      r.category.includes("Livery") ? "LIVERY" : "RECORD";
+
+    return `
+      <article class="record">
+        <div class="fleet">${r.fleet}</div>
+        <div class="record-main">
+          <h3>${r.category}</h3>
+          ${r.detail ? `<p>${r.detail}</p>` : ""}
+        </div>
+        <div class="record-actions">
+          <span class="tag">${type}</span>
+          <a class="change-request" href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  noResults.hidden = filtered.length !== 0;
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
