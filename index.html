@@ -809,7 +809,7 @@ function render() {
 
   resultCount.textContent = hasSearch
     ? `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`
-    : "Search for a vehicle to see matching records.";
+    : "Search for a vehicle to view its fleet records. Please note that not all vehicles operating in New Zealand are listed in this database.";
 
   noResults.hidden = !hasSearch || filtered.length !== 0;
 }
