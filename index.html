@@ -173,14 +173,15 @@
   <option value="2">Non-Functional Hanover Displays (REAR)</option>
   <option value="3">Super X Hanover Displays Type 1</option>
   <option value="4">Super X Hanover Displays Type 2</option>
-  <option value="7">Non Super X Hanover Displays</option>
-  <option value="8">Glitching Mobitec Displays</option>
-  <option value="9">Removed Mobitec Displays</option>
-  <option value="10">Shore Blue Livery - AM EMU Trains</option>
-  <option value="11">Refurbished AM EMU Trains In Auckland</option>
-  <option value="12">Refurbished Diesel Buses In Auckland</option>
-  <option value="13">Buses On Loan In New Zealand</option>
-  <option value="14">Demonstrator Buses In New Zealand</option>
+  <option value="5">Non Super X Hanover Displays</option>
+  <option value="6">Glitching Mobitec Displays</option>
+  <option value="7">Removed Mobitec Displays</option>
+  <option value="8">Shore Blue Livery - AM EMU Trains</option>
+  <option value="9">Refurbished AM EMU Trains In Auckland</option>
+  <option value="10">Refurbished Diesel Buses In Auckland</option>
+  <option value="11">Non-Functional Audio</option>
+  <option value="12">Buses On Loan In New Zealand</option>
+  <option value="13">Demonstrator Buses In New Zealand</option>
 </select>
     </div>
   </div>
@@ -653,6 +654,7 @@ const categoryNames = [
   "Shore Blue Livery - AM EMU Trains",
   "Refurbished AM EMU Trains In Auckland",
   "Refurbished Diesel Buses In Auckland",
+  "Non-Functional Audio",
   "Buses On Loan In New Zealand",
   "Demonstrator Buses In New Zealand"
 ];
@@ -744,6 +746,7 @@ function render() {
   results.innerHTML = filtered.map(r => {
     const type = r.category.includes("Hanover") ? "DISPLAY" :
                  r.category.includes("Mobitec") ? "DISPLAY" :
+                 r.category.includes("Audio") ? "AUDIO" :
                  r.category.includes("Refurbished") ? "REFURBISHMENT" :
                  r.category.includes("Loan") ? "LOAN" :
                  r.category.includes("Demonstrator") ? "DEMO" :
