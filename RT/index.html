@@ -6,19 +6,19 @@
   <title>Ritchies Transport | NZ Bus &amp; Train Fleet Database</title>
   <meta name="description" content="Ritchies Transport fleet records in the New Zealand Bus &amp; Train Fleet Database.">
   <meta name="theme-color" content="#0b1f33">
-  <link rel="icon" type="image/png" sizes="512x512" href="./nzbustfd-logo-512.png?v=5">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="../nzbustfd-logo-512.png?v=5">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header class="hero" style="min-height:0;height:auto;padding-bottom:0;">
   <nav class="nav">
-    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
-      <img src="./nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
+    <a class="brand" href="../" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img src="../nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
       <span>NZ Bus &amp; Train Fleet Database</span>
     </a>
     <div class="navlinks">
-      <a href="./about.html">About Us</a>
-      <a href="./contact.html">Contact Us</a>
+      <a href="../about.html">About Us</a>
+      <a href="../contact.html">Contact Us</a>
     </div>
   </nav>
 </header>
@@ -32,7 +32,7 @@
   </div>
   <div class="operator-controls">
     <input id="operatorSearch" type="search" placeholder="Search fleet number, category or vehicle type..." aria-label="Search Ritchies Transport records">
-    <a href="./">← Back to main database</a>
+    <a href="../">← Back to main database</a>
   </div>
   <div id="operatorResults" class="results"></div>
   <p id="operatorNoResults" class="no-results" hidden>No matching fleet records found.</p>
@@ -209,7 +209,7 @@ function render() {
         </div>
         <div class="record-actions">
           <span class="tag">${type}</span>
-          <a class="change-request" href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
+          <a class="change-request" href="../request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
         </div>
       </article>
     `;
