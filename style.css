@@ -267,9 +267,9 @@ h1 {
   margin-bottom: 26px;
 }
 
-/* Reduce the gap below the Fleet Database heading and NOTE */
+/* Spacing below the Fleet Database heading and note */
 .database .section-heading {
-  margin-bottom: 4px;
+  margin-bottom: 22px;
 }
 
 .database .section-heading p {
@@ -387,7 +387,7 @@ h2 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
   grid-template-rows: auto 60px;
-  gap: 3px 10px;
+  gap: 16px 10px;
   align-items: stretch;
 }
 
@@ -769,7 +769,7 @@ footer span {
   .controls {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto 60px 60px;
-    gap: 3px;
+    gap: 16px;
   }
 
   .search-tip {
