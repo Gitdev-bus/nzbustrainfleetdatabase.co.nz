@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tranzurban | NZ Bus &amp; Train Fleet Database</title>
+  <meta name="description" content="Tranzurban fleet records in the New Zealand Bus &amp; Train Fleet Database.">
+  <meta name="theme-color" content="#0b1f33">
+  <link rel="icon" type="image/png" sizes="512x512" href="./nzbustfd-logo-512.png?v=5">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero" style="min-height:0;height:auto;padding-bottom:0;">
+  <nav class="nav">
+    <a class="brand" href="./" aria-label="NZ Bus and Train Fleet Database homepage">
+      <img src="./nzbustfd-logo-512.png" alt="" class="brand-logo" width="44" height="44">
+      <span>NZ Bus &amp; Train Fleet Database</span>
+    </a>
+    <div class="navlinks">
+      <a href="./">Home</a>
+      <a href="./about.html">About Us</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+  </nav>
+</header>
+
+<main class="operator-page">
+  <p class="eyebrow">TR FLEET DATABASE</p>
+  <h1 style="color:var(--ink);font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;margin:0;">Tranzurban</h1>
+  <p class="page-intro">Browse all TR fleet records currently listed in the database.</p>
+  <div class="result-bar">
+    <strong id="operatorCount">0 Records</strong>
+    <span>Fleet prefix: TR</span>
+  </div>
+  <div class="operator-controls">
+    <input id="operatorSearch" type="search" placeholder="Search fleet number, category or vehicle type..." aria-label="Search Tranzurban records">
+    <a href="./">← Back to main database</a>
+  </div>
+  <div id="operatorResults" class="results"></div>
+  <p id="operatorNoResults" class="no-results" hidden>No matching fleet records found.</p>
+</main>
+
+<footer>
+  <div>
+    <strong>nzbustrainfleetdatabase.co.nz</strong>
+    <span>NZ Bus &amp; Train Fleet Database</span>
+  </div>
+  <strong>Operator Fleet Records</strong>
+</footer>
+
+<script>
+const records = [
+  {"fleet":"TR3823","category":"Non Functional Hanover Displays (REAR)","detail":"2024 CRRC CSR6127GLEV1 (eT12 MAX) - CRRC"},
+  {"fleet":"TR3347","category":"Non Functional Audio","detail":"2018 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"TR3350","category":"Non Functional Audio","detail":"2018 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"TR3354","category":"Non Functional Audio","detail":"2018 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"TR3356","category":"Non Functional Audio","detail":"2018 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"TR3358","category":"Non Functional Audio","detail":"2018 Scania K320UB6 - Kiwi Bus Builders"},
+  {"fleet":"TR3506","category":"Non Functional Audio","detail":"2018 BCI FBC6123 Citirider Double Decker - BCI"},
+  {"fleet":"TR3520","category":"Non Functional Audio","detail":"2018 BCI FBC6123 Citirider Double Decker - BCI"},
+  {"fleet":"TR3553","category":"Non Functional Audio","detail":"2018 BCI FBC6123 Citirider Double Decker - BCI"},
+  {"fleet":"TR3562","category":"Non Functional Audio","detail":"2018 BCI FBC6123 Citirider Double Decker - BCI"},
+  {"fleet":"TR3563","category":"Non Functional Audio","detail":"2018 BCI FBC6123 Citirider Double Decker - BCI"},
+  {"fleet":"TR3860","category":"Non Functional Audio","detail":"2024 CRRC CSR6120GLEVD1 (eD12 MAX) - Gemilang"},
+  {"fleet":"TR3861","category":"Non Functional Audio","detail":"2025 CRRC CSR6120GLEVD1 (eD12 MAX) - Gemilang"},
+];
+
+const results = document.getElementById("operatorResults");
+const search = document.getElementById("operatorSearch");
+const count = document.getElementById("operatorCount");
+const noResults = document.getElementById("operatorNoResults");
+
+function render() {
+  const q = search.value.trim().toLowerCase();
+  const filtered = records.filter(r =>
+    `${r.fleet} ${r.category} ${r.detail}`.toLowerCase().includes(q)
+  );
+
+  count.textContent = `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
+
+  results.innerHTML = filtered.map(r => {
+    const type = r.category.includes("Hanover") || r.category.includes("Mobitec") ? "DISPLAY" :
+      r.category.includes("Audio") ? "AUDIO" :
+      r.category.includes("Refurbished") ? "REFURBISHMENT" :
+      r.category.includes("Loan") ? "ON LOAN" :
+      r.category.includes("Demonstrator") ? "DEMONSTRATOR" :
+      r.category.includes("Livery") ? "LIVERY" : "RECORD";
+
+    return `
+      <article class="record">
+        <div class="fleet">${r.fleet}</div>
+        <div class="record-main">
+          <h3>${r.category}</h3>
+          ${r.detail ? `<p>${r.detail}</p>` : ""}
+        </div>
+        <div class="record-actions">
+          <span class="tag">${type}</span>
+          <a class="change-request" href="./request.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">Submit Change Request</a>
+        </div>
+      </article>
+    `;
+  }).join("");
+
+  noResults.hidden = filtered.length !== 0;
+}
+
+search.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>
