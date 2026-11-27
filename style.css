@@ -852,3 +852,87 @@ footer span {
     margin-top: 12px;
   }
 }
+
+
+/* Operator shortcut buttons */
+.operators {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px 78px;
+}
+.operator-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.operator-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-width: 250px;
+  padding: 15px 19px;
+  border: 1px solid #c4e2e5;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 850;
+  box-shadow: 0 5px 18px rgba(9, 51, 62, .045);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.operator-button span {
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+.operator-button:hover {
+  transform: translateY(-3px);
+  border-color: #82bbc4;
+  background: #f8fdfd;
+  box-shadow: 0 10px 26px rgba(9, 51, 62, .1);
+}
+.operator-page {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 62px 40px 86px;
+}
+.operator-page .page-intro {
+  margin: 10px 0 24px;
+  color: var(--muted);
+}
+.operator-page .operator-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.operator-page .operator-controls input {
+  min-height: 54px;
+  border: 1px solid var(--line);
+}
+.operator-page .operator-controls a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: #e8f5f6;
+  border: 1px solid #c4e2e5;
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-weight: 800;
+}
+@media (max-width: 900px) {
+  .operators { padding: 0 24px 68px; }
+  .operator-page { padding: 54px 24px 72px; }
+}
+@media (max-width: 700px) {
+  .operators { padding: 0 20px 58px; }
+  .operator-button { width: 100%; min-width: 0; }
+  .operator-page { padding: 45px 20px 60px; }
+  .operator-page .operator-controls { grid-template-columns: minmax(0, 1fr); }
+}
