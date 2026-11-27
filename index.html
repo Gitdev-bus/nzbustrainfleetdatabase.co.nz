@@ -766,7 +766,9 @@ function render() {
   resultCount.textContent =
     `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`;
 
-  results.innerHTML = filtered.map(r => {
+  const hasSearch = q.length > 0 || cat !== "all";
+
+  results.innerHTML = hasSearch ? filtered.map(r => {
     const type = r.category.includes("Hanover") ? "DISPLAY" :
                  r.category.includes("Mobitec") ? "DISPLAY" :
                  r.category.includes("Audio") ? "AUDIO" :
@@ -796,9 +798,13 @@ function render() {
         </div>
       </article>
     `;
-  }).join("");
+  }).join("") : "";
 
-  noResults.hidden = filtered.length !== 0;
+  resultCount.textContent = hasSearch
+    ? `${filtered.length} Record${filtered.length === 1 ? "" : "s"}`
+    : "Search for a vehicle to see matching records.";
+
+  noResults.hidden = !hasSearch || filtered.length !== 0;
 }
 
 search.addEventListener("input", render);
