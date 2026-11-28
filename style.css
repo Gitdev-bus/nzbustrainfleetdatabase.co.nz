@@ -1014,3 +1014,44 @@ footer {
     font-size: .76rem;
   }
 }
+
+
+/* Clickable fleet-number buttons for individual vehicle pages */
+a.fleet-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 82px;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid var(--accent-dark);
+  border-radius: 10px;
+  background: var(--accent-dark);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 3px 9px rgba(9, 51, 62, .12);
+  transition: background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+a.fleet-link:visited {
+  color: #fff;
+}
+
+a.fleet-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(9, 51, 62, .16);
+}
+
+a.fleet-link:focus-visible {
+  outline: 3px solid #10a0a7;
+  outline-offset: 3px;
+}
