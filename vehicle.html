@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("fleetValue").textContent = record.fleet;
     document.getElementById("categoryValue").textContent = record.category;
     document.getElementById("detailValue").textContent = record.detail || "No additional details recorded";
+    document.getElementById("regoValue").textContent = record.rego || "-";
     document.title = record.fleet + " | NZ Bus & Train Fleet Database";
     document.getElementById("changeLink").href =
       "./request.html?fleet=" + encodeURIComponent(record.fleet) +
