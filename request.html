@@ -386,10 +386,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Remove full-line JavaScript comments before parsing.
-    const recordsText = "[" + match[1]
+    let recordsText = "[" + match[1]
       .split("\n")
       .filter(line => !line.trim().startsWith("//"))
       .join("\n") + "]";
+
+    // The homepage records use JavaScript-style trailing commas,
+    // which JSON.parse does not accept.
+    recordsText = recordsText.replace(/,\s*([}\]])/g, "$1");
 
     const records = JSON.parse(recordsText);
 
