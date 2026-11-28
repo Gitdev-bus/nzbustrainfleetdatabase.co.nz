@@ -78,7 +78,7 @@ function render() {
 
     return `
       <article class="record">
-        <div class="fleet">${r.fleet}</div>
+        <a class="fleet fleet-link" href="../vehicle.html?fleet=${encodeURIComponent(r.fleet)}&category=${encodeURIComponent(r.category)}">${r.fleet}</a>
         <div class="record-main">
           <h3>${r.category}</h3>
           ${r.detail ? `<p>${r.detail}</p>` : ""}
