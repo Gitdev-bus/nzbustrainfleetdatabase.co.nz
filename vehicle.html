@@ -50,7 +50,7 @@
     <div class="vehicle-details">
       <div class="vehicle-detail"><span>Fleet Number:</span><strong id="fleetValue">—</strong></div>
       <div class="vehicle-detail"><span>Category:</span><strong id="categoryValue">—</strong></div>
-      <div class="vehicle-detail"><span>Vehicle Details:</span><strong id="detailValue">—</strong></div>
+      <div class="vehicle-detail"><span>Livery:</span><strong id="liveryValue">AT Metro</strong></div>
       <div class="vehicle-detail"><span>Rego:</span><strong id="regoValue">-</strong></div>
     </div>
     <div class="vehicle-actions" id="vehicleActions" hidden>
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     summary.textContent = record.detail || "No additional vehicle details have been provided for this record.";
     document.getElementById("fleetValue").textContent = record.fleet;
     document.getElementById("categoryValue").textContent = record.category;
-    document.getElementById("detailValue").textContent = record.detail || "No additional details recorded";
+    document.getElementById("liveryValue").textContent = "AT Metro";
     document.getElementById("regoValue").textContent = record.rego || "-";
     document.title = record.fleet + " | NZ Bus & Train Fleet Database";
     document.getElementById("changeLink").href =
